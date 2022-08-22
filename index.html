@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>ჩემი პრეზენტაცია ლოლ</title>
+		<title>პრეზენტაცია</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<style>
 @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
@@ -73,13 +73,6 @@ h1, h2, h3 {
 	      to {opacity:100%;}
       }
 
-
-      .lol {
-	      animation: test_anim;
-	      animation-duration: 1s;
-	      animation-fill-mode: forwards;
-      }
-
       .fade{
 	      height:100%;
 	      width:100%;
@@ -95,6 +88,98 @@ h1, h2, h3 {
       img:not(.header-img){
 	      width: 100%;
       }
+	
+      @keyframes block_anim{
+	      0%{
+		      opacity: 0%;
+		      transform: translateY(-100%);
+	      }
+	      100%{
+		      opacity: 100%;
+		      visibility: visible;
+		      transform: translateY(0%);
+	      }
+      }
+    @keyframes block_anim2{
+	      0%{
+		      opacity: 100%;
+		      transform: translateY(0%);
+	      }
+	      10%{
+		      opacity: 0%;
+		      visibility: hidden;
+		      transform: translateY(-100%);
+	      }
+	      90%{
+		      opacity: 0%;
+		      visibility: hidden;
+		      transform: translateY(-100%);
+		      background-color: #758f6b;
+	      }
+	      100%{
+		      opacity: 100%;
+		      transform: translateY(0%);
+		      background-color: green;
+	      }
+      }
+        @keyframes block_anim3{
+	      0%{
+		      opacity: 100%;
+		      transform: translateY(0%);
+	      }
+	      10%{
+		      opacity: 0%;
+		      visibility: hidden;
+		      transform: translateY(-100%);
+	      }
+	      90%{
+		      opacity: 0%;
+		      visibility: hidden;
+		      transform: translateY(-100%);
+		      background-color: #758f6b;
+	      }
+	      100%{
+		      opacity: 100%;
+		      transform: translateY(0%);
+		      background-color: red;
+	      }
+      }
+
+
+
+      .block{
+	      background-color: #6b7a8f;
+	      visibility: hidden;
+	      animation-fill-mode: forwards;
+	      display: inline-block;
+	      width: 100px;
+	      height: 30px;
+	      text-align: center;
+      }
+
+      .block.b1{animation: 0.3s block_anim forwards; animation-delay: 0s;}
+      .block.b2{animation: 0.3s block_anim forwards; animation-delay: 0.5s;}
+      .block.b3{animation: 0.3s block_anim forwards; animation-delay: 1s;}
+      .block.b4{animation: 0.3s block_anim forwards; animation-delay: 1.5s;}
+      .block.b5{animation: 0.3s block_anim forwards; animation-delay: 2s;}
+
+      .block2{
+	      background-color: #6b7a8f;
+	      visibility: visible;
+	      animation-fill-mode: forwards;
+	      display: inline-block;
+	      width: 100px;
+	      height: 30px;
+	      text-align: center;
+	      animation-direction: reverse;
+      }
+    .block2.b2{animation: 2.3s block_anim2 forwards; animation-delay: 0.5s;}
+    .block2.b4{animation: 2.3s block_anim3 forwards; animation-delay: 1s;}
+
+
+
+
+
 		</style>
 	</head>
 	<body>
@@ -169,28 +254,17 @@ class: center, middle
 name: goals
 # Design goals
 
-im building digital additive polyphonic
-
-
-კი შემეძლო ანალოგ მექნა რაც ყველანაირად უკეთესი იქნებოდა მარა მიკროპროცესორების სწავლა მინდოდა
-
 1. fast
+	- unnoticable delay for external MIDI
 	- responsive graphics
-	- unnoticable roundtrip delay for MIDI
-1. feature-rich
+1. features
 	- multiple waveforms
 	- 4 note polyphony
-	- full MIDI support (12 octaves, velocity, cc messages)
-	- song timeline
-	- chords
-	- automations
----
-
-# competition
-
-- price range
-- volca
-- sequencer fatures
+	- full MIDI support (12 octaves*, velocity, cc messages)
+	- sequencer
+		- song timeline
+		- chords
+		- automations
 
 ---
 # Hardware
@@ -466,118 +540,158 @@ class: middle, center
 ---
 # BUT...
 
-- its what was avialeble
+- learning opportunity
+	- use hardware to it's maximum
 	- working with limited resources
-- its hard
-- use hardware to its maximum
-
---
-
-count: false
-
-.lol[demoscene???]
-
+- avr microcontrolers (such as 168p, 328p) are ubiquitous
+- it's hard
+	- fun
 
 ---
 class: center, middle
-# back to how to _synth_
+#Synthethis
 
 ---
-- ბლოკ დიაგრამა რომ ვკითხულობთ ამპლიტუდას, ვამრვლებთ adsr ზე და ვჯამავთ.
-- basic synth layout რა რო ჯერ ოსილატორი მერე ის მერე ის
-- მანდ რო აჯამვის პრობლემაც რთულია და გამრავლებისაც ეგ ჩვენე (float ების მიერ დაგენერირებული ესემბლი)
-
-
----
-# adsr animation? 
-
-სინუსოიდა რომ ჩანდეს in realtime და თითი რომელიც კლავიშას აჭერს და ეგ adsr ს ატრიგერებს და მერე მაგის
-ტალღაზე რომ მრავლდება სინუსოიდის ამპლიტუდა და გამომავალი ტალღაც რო ჩანდეს.
-
-მერე ეგენი რამდენიმე და
-
-ვაფშე კოდი იყოს რო sin ის output ს ამრავლებ ამპლიტუდაზე და ჯამავ და მერე ესემბლი და ვუი......
-
----
-
-
-# limitations
-
-- 512 cylce limit
-- schedguling ( ეს მერე sequencer ზე)
-	- რო ანუ ზოგი საქმე არის რომელიც audio rate უნდა მოხდეს 
-
-	და ზოგი არა და
-
----
-
-
-# synthethis method
-
-- simple lookup (ყველაფერი რაც შეიძლება lookup shi წავიდეს -მიდის)
-- fixed notation
-- precalculate all the waveforms
+ჯერ არ არის დასრულებული
 
 ---
 class: center, middle
-# the sequencer
+# Sequencer
 ---
-# features:
+# Sequencer - goals:
 
-- place notes
-- ability to quickly place notes infront
-- place automations
-- chord support!
-- many many notes
-
----
-
-# aa
-
-ability to quickly place notes infront
-
-which datastructure????/
-
---
-
-linked list
-
---
-
-# wrong!!!!!
-
---
-
-basic linked list implementation
-
---
-
-solution? costum malloc! memory arena
+- timeline view (LCD)
+- fast insert/delete
+- notes, automations
+- chord support (!)
 
 ---
 
-# sequencer data strucure
+# Sequencer - picking a data structure
 
-- tagged union
-	- bevr rames ro imashvreba
-	- polymorphiosm in C
-	- small footprint
-	- რადგან გადახტომა არ გვიწევს კაია
-	- 
-- avoiding fragmentation (animation)
+##...array?
+
+---
+
+# Sequencer - picking a data structure
+
+##...array?
+
+.fade[
+.left-column[
+### pros
+- uses less memory (no need to store next/prev element id/pointer)
+- easy to access elements
+- easy to implement
+- appending elements is also easy
+]
+
+.right-column[
+### cons
+- deletion requires shifting elements backwards
+	- cpu intensive 
+- inserting elements also requires shifting
+]
+]
+
+---
+
+# Sequencer - picking a data structure
+
+##...linked list?
+
+--
+
+.fade[
+```c
+struct Node {
+    int data;
+    struct Node* next;
+};
+ 
+int main()
+{
+    struct Node* head = NULL;
+    struct Node* second = NULL;
+    struct Node* third = NULL;
+ 
+    // allocate 3 nodes in the heap
+*    head = (struct Node*)malloc(sizeof(struct Node));
+*    second = (struct Node*)malloc(sizeof(struct Node));
+*    third = (struct Node*)malloc(sizeof(struct Node));
+    ...
+```
+]
+---
+
+class: middle center
+# malloc on AVR?
+---
+
+# Solution: 
+--
+.fade[
+##array + linked-list + tagged-union
+```c
+enum datatype {uninitialized,note_type,automation_type,lifo};
+struct data{
+	enum datatype type;
+	union{
+		note_type note;
+		automation_type aut;
+		int8_t next_empy_index;
+	};
+	uint8_t beat;
+	uint8_t bar;
+	int8_t next_index;
+	int8_t prev_index;
+}typedef data;
+
+```
+]
+
+---
+
+#demo
+###insert
+
+.block.b1[]
+.block.b2[]
+.block.b3[]
+.block.b4[]
+.block.b5[]
+
+- decoupled array index and timeline position
+
+---
+
+#demo
+### insert after deleting multiple elements
+
+.block2.b1[]
+.block2.b2[]
+.block2.b3[]
+.block2.b4[]
+.block2.b5[]
+
+- decoupled array index and timeline position
+- empty blocks are reused for future elements
+	- no need for reclaiming empty blocks by shifting
 
 ---
 
 # sequencer visuals
 
 - double buffering
-- visual delta send
+- only sending the blocks which have changed
+
+არ არის დასრულებული
 
 ---
 
-# setup
+class: center,middle
+# Thank you
 
-- open source
 
 
 
