@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>პრეზენტაცია</title>
+		<title>ჩემი პრეზენტაცია ლოლ</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<style>
 @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
@@ -73,6 +73,13 @@ h1, h2, h3 {
 	      to {opacity:100%;}
       }
 
+
+      .lol {
+	      animation: test_anim;
+	      animation-duration: 1s;
+	      animation-fill-mode: forwards;
+      }
+
       .fade{
 	      height:100%;
 	      width:100%;
@@ -132,20 +139,24 @@ h1, h2, h3 {
 		      visibility: hidden;
 		      transform: translateY(-100%);
 	      }
-	      90%{
+	      50%{
 		      opacity: 0%;
 		      visibility: hidden;
 		      transform: translateY(-100%);
 		      background-color: #758f6b;
 	      }
+	      60%{
+		      opacity: 100%;
+		      transform: translateY(0%);
+		      background-color: green;
+	      }
 	      100%{
 		      opacity: 100%;
 		      transform: translateY(0%);
-		      background-color: red;
+		      background-color: green;
 	      }
+
       }
-
-
 
       .block{
 	      background-color: #6b7a8f;
@@ -156,12 +167,78 @@ h1, h2, h3 {
 	      height: 30px;
 	      text-align: center;
       }
+      .arrow{
+	      visibility: hidden;
+	      animation-fill-mode: forwards;
+      }
 
-      .block.b1{animation: 0.3s block_anim forwards; animation-delay: 0s;}
-      .block.b2{animation: 0.3s block_anim forwards; animation-delay: 0.5s;}
-      .block.b3{animation: 0.3s block_anim forwards; animation-delay: 1s;}
-      .block.b4{animation: 0.3s block_anim forwards; animation-delay: 1.5s;}
-      .block.b5{animation: 0.3s block_anim forwards; animation-delay: 2s;}
+      @keyframes arrow_fade_anim{
+	      0%{
+		      opacity: 100%;
+	      }
+	      10%{
+		      opacity: 0%;
+		      visibility: hidden;
+	      }
+	      90%{
+		      opacity: 0%;
+		      visibility: hidden;
+	      }
+	      100%{
+		      opacity: 0%;
+	      }
+
+      }
+      @keyframes arrow_fade_in_anim{
+	      0%{
+		      opacity: 0%;
+		      visibility: hidden;
+	      }
+	      10%{
+		      opacity: 100%;
+		      visibility: visible;
+	      }
+	      100%{
+		      opacity: 100%;
+		      visibility: visible;
+	      }
+      }
+      @keyframes arrow_fade_in_bot_anim{
+	      0%{
+		      opacity: 0%;
+		      visibility: hidden;
+	      }
+	      90%{
+		      opacity: 0%;
+		      visibility: hidden;
+	      }
+	      100%{
+		      opacity: 100%;
+		      visibility: visible;
+	      }
+      }
+
+
+      .arrow_static{
+	      visibility: visible;
+	      animation-fill-mode: forwards;
+      }
+      .arrow_fade{
+	      animation: arrow_fade_anim 2.3s;
+	      animation-fill-mode: forwards;
+      }
+      .arrow_fade_in{
+	      visibility: hidden;
+	      animation: arrow_fade_in_anim 2.3s;
+	      animation-fill-mode: forwards;
+      }
+
+
+      .b1{animation: 0.3s block_anim forwards; animation-delay: 0s;}
+      .b2{animation: 0.3s block_anim forwards; animation-delay: 0.5s;}
+      .b3{animation: 0.3s block_anim forwards; animation-delay: 1s;}
+      .b4{animation: 0.3s block_anim forwards; animation-delay: 1.5s;}
+      .b5{animation: 0.3s block_anim forwards; animation-delay: 2s;}
 
       .block2{
 	      background-color: #6b7a8f;
@@ -173,12 +250,155 @@ h1, h2, h3 {
 	      text-align: center;
 	      animation-direction: reverse;
       }
+      .block_shell{
+	      display: inline-block;
+	      border-bottom: 4px solid black;
+	      width: 100px;
+	      height: 30px;
+	      text-align: center;
+	      animation-direction: reverse;
+      }
+
     .block2.b2{animation: 2.3s block_anim2 forwards; animation-delay: 0.5s;}
     .block2.b4{animation: 2.3s block_anim3 forwards; animation-delay: 1s;}
 
 
+    @keyframes code_fade{
+	      0%{
+		      opacity: 0%;
+		      visibility: hidden;
+	      }
+	      20%{
+		      opacity: 100%;
+		      visibility: visible;
+	      }
+	      80%{
+		      opacity: 100%;
+		      visibility: visible;
+	      }
+	      100%{
+		      opacity: 0%;
+		      visibility: hidden;
+	      }
+    }
+    	.lcd_block{
+	      background-color: green;
+	      color: white;
+	      display: inline-block;
+	      width: 20px;
+	      height: 30px;
+	      text-align: center;
+	      margin-right: -2px;
+	}
+	.lcd_block.orange{
+	      background-color: blue;
+	}
 
+	@keyframes lcd_command_anim{
+		from{
+			background-position:0%;
+		}
+		to{
+			background-position:-100%;
+		}
+	}
 
+	.lcd_command{
+	      background-color: purple;
+	      color: black;
+	      height: 30px;
+	      background-size: 200% 100%;
+	      background-image: linear-gradient(to right, white 50%, yellow 50%);
+	      animation: lcd_command_anim 1s forwards linear;
+	}
+
+	@keyframes diff_anim{
+0.0%{left:53px}
+6.25%{left:79px}
+12.5%{left:102px}
+18.75%{left:125px}
+25.0%{left:148px}
+31.25%{left:171px}
+37.5%{left:195px}
+43.75%{left:218px}
+50.0%{left:241px}
+56.25%{left:263px}
+62.5%{left:287px}
+68.75%{left:310px}
+75.0%{left:333px}
+81.25%{left:356px}
+87.5%{left:380px}
+93.75%{left:403px}
+100.0%{left:426px}
+	}
+
+In [13]: count=78
+    ...: for i in range(17):
+    ...:     print(str((i)*6.25) + "%{left:"+str(count)+"}")
+    ...:     count=count+20
+0.0%{left:78}
+6.25%{left:98}
+12.5%{left:118}
+18.75%{left:138}
+25.0%{left:158}
+31.25%{left:178}
+37.5%{left:198}
+43.75%{left:218}
+50.0%{left:238}
+56.25%{left:258}
+62.5%{left:278}
+68.75%{left:298}
+75.0%{left:318}
+81.25%{left:338}
+87.5%{left:358}
+93.75%{left:378}
+100.0%{left:398}
+
+In [14]: count=78
+    ...: for i in range(17):
+    ...:     print(str((i)*6.25) + "%{left:"+str(count)+"px}")
+    ...:     count=count+20
+0.0%{left:78px}
+6.25%{left:98px}
+12.5%{left:118px}
+18.75%{left:138px}
+25.0%{left:158px}
+31.25%{left:178px}
+37.5%{left:198px}
+43.75%{left:218px}
+50.0%{left:238px}
+56.25%{left:258px}
+62.5%{left:278px}
+68.75%{left:298px}
+75.0%{left:318px}
+81.25%{left:338px}
+87.5%{left:358px}
+93.75%{left:378px}
+100.0%{left:398px}
+
+In [15]: count=78
+    ...: for i in range(17):
+    ...:     print(str((i)*6.25) + "%{left:"+str(count)+"px}")
+    ...:     count=count+23
+0.0%{left:78px}
+6.25%{left:101px}
+12.5%{left:124px}
+18.75%{left:147px}
+25.0%{left:170px}
+31.25%{left:193px}
+37.5%{left:216px}
+43.75%{left:239px}
+50.0%{left:262px}
+56.25%{left:285px}
+62.5%{left:308px}
+68.75%{left:331px}
+75.0%{left:354px}
+81.25%{left:377px}
+87.5%{left:400px}
+93.75%{left:423px}
+100.0%{left:446px}
+	}
+	
 
 		</style>
 	</head>
@@ -201,18 +421,19 @@ Agricultural University of Georgia
 ---
 
 class: center, middle
-# what even is a synth?
+# What even is a synth?
 
 ---
 
 class: center, middle
 ### "An electronic machine for producing different sounds ..."
-\- Oxford Advanced Learner's Dictionary
+
+<p style="text-align:right">- Oxford Advanced Learner's Dictionary</p>
 
 ---
 
 class: center, middle
-.fade[![pirveli](./simple1.svg)]
+.fade[![:svg 100%](./simple1.svg)]
 ---
 class: center, middle
 .fade[![pirveli](https://upload.wikimedia.org/wikipedia/commons/2/22/Minimoog.JPG)]
@@ -230,22 +451,22 @@ class: center, middle
 .fade[![pirveli](./chemi.jpg)]
 ---
 class: center, middle
-.fade[![pirveli](./simple1.svg)]
+.fade[![:svg 100%](./simple1.svg)]
 ---
 class: center, middle
-.fade[![pirveli](./simple2.svg)]
+.fade[![:svg 100%](./simple2.svg)]
 ---
 class: center, middle
-.fade[![pirveli](./simple3_mono.svg)]
+.fade[![:svg 100%](./simple3.svg)]
 ---
 class: center, middle
-.fade[![pirveli](./simple4_poly_an.svg)]
+.fade[![:svg 100%](./simple4.svg)]
 ---
 class: center, middle
-.fade[![pirveli](./simple5_poly_dig.svg)]
+.fade[![:svg 100%](./simple5.svg)]
 ---
 class: center, middle
-.fade[![pirveli](./simple6_poly_dig_mine.svg)]
+.fade[![:svg 100%](./simple6.svg)]
 
 
 ---
@@ -526,6 +747,24 @@ const uint16_t midi_note_incrs[253] PROGMEM =
 
 ---
 
+# Hardware - ATmega328P
+
+.left-column[
+- no DAC, no DSP module
+- 16 megahertz 
+- no FPU
+- 8 bits
+- 1 kb of SRAM
+- 32 kb of flash ROM
+- USART
+]
+--
+.right-column[.fade[
+- getting and parsing midi packets is trivial
+]]
+
+---
+
 class: middle, center
 # Are we using a wrong tool for this job?
 ![wrong tool for the job](https://images.squarespace-cdn.com/content/v1/5f3b3b092fd8357ee7668b5f/1631646614309-JPQ187314AO0WH23LEHD/wrongtools.jpg)
@@ -541,7 +780,7 @@ class: middle, center
 # BUT...
 
 - learning opportunity
-	- use hardware to its maximum
+	- use hardware to it's maximum
 	- working with limited resources
 - avr microcontrolers (such as 168p, 328p) are ubiquitous
 - it's hard
@@ -549,10 +788,134 @@ class: middle, center
 
 ---
 class: center, middle
-#Synthethis
+# How to synthesise a simple sine wave
 
 ---
-ჯერ არ არის დასრულებული
+
+# Naive implementation
+
+Lets generate a sinve wave:
+.left-column[
+```c
+float time=0;
+float delta=0.1;
+
+float generate_output(){
+	time=time+delta;
+	return sin(time)*512;
+}
+```
+]
+---
+
+# Naive implementation
+
+Lets generate a sinve wave:
+.left-column[
+```c
+float time=0;
+float delta=0.1;
+
+float generate_output(){
+	time=time+delta;
+*   return sin(time)*512;
+}
+```
+- -Os build
+- just for one ```sin``` call
+- huge amounts of asm = _SLOW_
+]
+
+
+<div class="right-column" style="margin-top: -46px;margin-right: -100px; width: 50%; float: right;">
+	generated asm:
+	<p><img src="./output.gif" style="width: 58%; object-fit: contain"></p>
+</div>
+
+
+---
+
+# Fast implementation
+```c
+const uint8_t sine_wave[253] PROGMEM =
+{127, 130, 133, 137, 140, 143, 146, 149, 152, 155, 158, 162, 165, 168, 171, 174, 177, 179, 182, 185, 188, 191, 193, 196, 199, 201, 204, 206, 209, 211, 214, 216, 218, 220, 223, 225, 227, 229, 231, 232, 234, 236, 237, 239, 240, 242, 243, 244, 246, 247, 248, 249, 250, 251, 251, 252, 253, 253, 254, 254, 254, 254, 254, 255, 254, 254, 254, 254, 254, 253, 253, 252, 251, 251, 250, 249, 248, 247, 246, 244, 243, 242, 240, 239, 237, 236, 234, 232, 231, 229, 227, 225, 223, 220, 218, 216, 214, 211, 209, 206, 204, 201, 199, 196, 193, 191, 188, 185, 182, 179, 177, 174, 171, 168, 165, 162, 158, 155, 152, 149, 146, 143, 140, 137, 133, 130, 127, 124, 121, 117, 114, 111, 108, 105, 102, 99, 96, 92, 89, 86, 83, 80, 77, 75, 72, 69, 66, 63, 61, 58, 55, 53, 50, 48, 45, 43, 40, 38, 36, 34, 31, 29, 27, 25, 23, 22, 20, 18, 17, 15, 14, 12, 11, 10, 8, 7, 6, 5, 4, 3, 3, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 3, 3, 4, 5, 6, 7, 8, 10, 11, 12, 14, 15, 17, 18, 20, 22, 23, 25, 27, 29, 31, 34, 36, 38, 40, 43, 45, 48, 50, 53, 55, 58, 61, 63, 66, 69, 72, 75, 77, 80, 83, 86, 89, 92, 96, 99, 102, 105, 108, 111, 114, 117, 121, 124, 127};
+
+uint16_t time=0;
+uint16_t delta=2;
+
+uint8_t generate_output(float a, double b) {
+	time=time+delta;
+	return pgm_read_byte(&sine_wave[time]);
+}
+```
+---
+
+```c
+const uint8_t sine_wave[253] PROGMEM =
+{127, 130, 133, 137, 140, 143, 146, 149, 152, 155, 158, 162, 165, 168, 171, 174, 177, 179, 182, 185, 188, 191, 193, 196, 199, 201, 204, 206, 209, 211, 214, 216, 218, 220, 223, 225, 227, 229, 231, 232, 234, 236, 237, 239, 240, 242, 243, 244, 246, 247, 248, 249, 250, 251, 251, 252, 253, 253, 254, 254, 254, 254, 254, 255, 254, 254, 254, 254, 254, 253, 253, 252, 251, 251, 250, 249, 248, 247, 246, 244, 243, 242, 240, 239, 237, 236, 234, 232, 231, 229, 227, 225, 223, 220, 218, 216, 214, 211, 209, 206, 204, 201, 199, 196, 193, 191, 188, 185, 182, 179, 177, 174, 171, 168, 165, 162, 158, 155, 152, 149, 146, 143, 140, 137, 133, 130, 127, 124, 121, 117, 114, 111, 108, 105, 102, 99, 96, 92, 89, 86, 83, 80, 77, 75, 72, 69, 66, 63, 61, 58, 55, 53, 50, 48, 45, 43, 40, 38, 36, 34, 31, 29, 27, 25, 23, 22, 20, 18, 17, 15, 14, 12, 11, 10, 8, 7, 6, 5, 4, 3, 3, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 3, 3, 4, 5, 6, 7, 8, 10, 11, 12, 14, 15, 17, 18, 20, 22, 23, 25, 27, 29, 31, 34, 36, 38, 40, 43, 45, 48, 50, 53, 55, 58, 61, 63, 66, 69, 72, 75, 77, 80, 83, 86, 89, 92, 96, 99, 102, 105, 108, 111, 114, 117, 121, 124, 127};
+
+uint16_t time=0;
+uint16_t delta=2;
+
+uint8_t generate_output(float a, double b) {
+	time=time+delta;
+	return pgm_read_byte(&sine_wave[time]);
+}
+```
+
+output:
+
+```asm
+uint8_t generate_output(float a, double b) {
+    time=time+delta;
+lds r30, 0x0102 ; 0x800102 <time>
+lds r31, 0x0103 ; 0x800103 <time+0x1>
+lds r24, 0x0100 ; 0x800100 <delta>
+lds r25, 0x0101 ; 0x800101 <delta+0x1>
+add r30, r24
+adc r31, r25
+sts 0x0103, r31 ; 0x800103 <time+0x1>
+sts 0x0102, r30 ; 0x800102 <time>
+    return pgm_read_byte(&sine_wave[time]);
+subi    r30, 0x98   ; 152
+sbci    r31, 0xFF   ; 255
+*lpm r24, Z
+```
+
+---
+
+#Sine-wave lookup-table
+
+<object type="image/svg+xml" data="./example_sine.svg"></object>
+
+<object id="lookup_arrow" type="image/svg+xml" data="./arrow_read.svg"
+	style="position:absolute;
+	       bottom:155px;
+	       left:124px;
+	       "></object>
+
+.left-column[<span id="small_delta">small delta - low frequency</span>]
+.right-column[<span id="delta_code">delta= 3</span>]
+
+
+---
+# Scheduling
+```c
+...
+		do_adsr(&synth_state.note_s[2],2);
+		do_audio();
+		lcd_dispatch_commands();
+		do_audio();
+		draw_g();
+		do_audio();
+		draw_seq_background_bot();
+		do_audio();
+...
+
+```
+
+![:svg 100%](./sched.svg)
+
 
 ---
 class: center, middle
@@ -652,8 +1015,15 @@ struct data{
 
 ---
 
-#demo
+name:demo_1
+
+#Demo
 ###insert
+
+<img class="arrow b2" style="position: absolute;scale: 13%; left: -300px; top: 28px;" src="./arrow.svg" alt="midi">
+<img class="arrow b3" style="position: absolute;scale: 13%; left: -182px; top: 28px;" src="./arrow.svg" alt="midi">
+<img class="arrow b4" style="position: absolute;scale: 13%; left: -64px; top: 28px;" src="./arrow.svg" alt="midi">
+<img class="arrow b5" style="position: absolute;scale: 13%; left: 54px; top: 28px;" src="./arrow.svg" alt="midi">
 
 .block.b1[]
 .block.b2[]
@@ -661,35 +1031,277 @@ struct data{
 .block.b4[]
 .block.b5[]
 
+
+<p style=" position:absolute;top: 205px;z-index:100;">
+.block_shell[0]
+.block_shell[1]
+.block_shell[2]
+.block_shell[3]
+.block_shell[4]
+.block_shell[5]
+</p>
+
+<span>&nbsp;</span>
+
+.left-column[
 - decoupled array index and timeline position
+]
+
+
+.right-column[
+<pre>
+<code id="modify1" style="
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  line-height: 1.42857;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: #333;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+">data[3]{
+    type= uninitialized
+    note_type note= {null}
+    beat= 0
+    bar= 0
+    next_index= 0
+    prev_index= 0
+}
+
+</code>
+</pre>]
+
+<!--
+.right-column[
+<pre>
+<code id="modify1" style="
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  line-height: 1.42857;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: #333;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+">data[3]{
+*   type= lifo
+*   next_empy_index= 1
+    beat= 0
+    bar= 0
+    next_index= 0
+    prev_index= 0
+}
+
+</code>
+</pre>]
+
+.left-column[
+<pre>
+<code id="modify1" style="
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  line-height: 1.42857;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: #333;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+">data[3]{
+    type= note_type
+    note_type note= {"some other data"}
+    beat= 3
+    bar= 4
+*   next_index= 1
+*   prev_index= 4
+}
+</code>
+</pre>
+]
+-->
 
 ---
+name:demo_delete
 
-#demo
+#Demo
 ### insert after deleting multiple elements
 
-.block2.b1[]
-.block2.b2[]
-.block2.b3[]
-.block2.b4[]
-.block2.b5[]
+<img class="arrow_static arrow_fade" style="animation-delay: 0.5s;position: absolute;scale: 13%; left: -300px; top: 28px;" src="./arrow.svg" alt="midi">
+<img class="arrow_static arrow_fade" style="animation-delay: 0.5s;position: absolute;scale: 13%; left: -182px; top: 28px;" src="./arrow.svg" alt="midi">
+<img class="arrow_static arrow_fade" style="animation-delay: 1.0s;position: absolute;scale: 13%; left: -64px; top: 28px;" src="./arrow.svg" alt="midi">
+<img class="arrow_static arrow_fade" style="animation-delay: 1.0s;position: absolute;scale: 13%; left: 54px; top: 28px;" src="./arrow.svg" alt="midi">
 
+<img class="arrow_fade_in" style="animation-delay: 0.5s;position: absolute;scale: 23%;left: -241px;top: 176px;transform: rotate(180deg);" src="./arrow_long.svg" alt="midi">
+<img class="arrow_fade_in" style="animation-delay: 1s;position: absolute;scale: 23%;left: -5px;top: 176px;transform: rotate(180deg);" src="./arrow_long.svg" alt="midi">
+<img class="arrow_fade_in" style="animation-delay: 2.2s;position: absolute;scale: 13%; left: 54px; top: 28px;" src="./arrow.svg" alt="midi">
+<img style="visibility: hidden;animation: arrow_fade_in_bot_anim 2.3s;animation-fill-mode: forwards;animation-delay: .6s;position: absolute;scale: 23%;left: -126px;top: 107px;" src="./arrow_long.svg" alt="midi">
+
+<p style=" position:absolute;top: 205px;z-index:100;">
+.block_shell[0]
+.block_shell[1]
+.block_shell[2]
+.block_shell[3]
+.block_shell[4]
+.block_shell[5]
+</p>
+
+
+.block2[]
+.block2.b2[]
+.block2[]
+.block2.b4[]
+.block2[]
+
+
+<span>&nbsp;</span>
+
+.left-column[
 - decoupled array index and timeline position
 - empty blocks are reused for future elements
 	- no need for reclaiming empty blocks by shifting
+]
+
+.right-column[
+<pre>
+<code id="modify" style="
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  line-height: 1.42857;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: #333;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+">data[3]{
+    type=uninitialized
+    note_type note {"some data"}
+    beat=10
+    bar=2
+    next_index=4
+    prev_index=3
+}
+</code>
+</pre>]
+
+---
+class: middle,center
+#LCD display
+---
+
+#Two buffers
+
+sent buffer:
+
+.lcd_block[-]
+.lcd_block[-]
+.lcd_block[1]
+.lcd_block[-]
+.lcd_block[3]
+.lcd_block[-]
+.lcd_block[2]
+.lcd_block[1]
+.lcd_block[-]
+.lcd_block[-]
+.lcd_block[-]
+.lcd_block[-]
+.lcd_block[-]
+.lcd_block[-]
+.lcd_block[-]
+.lcd_block[-]
+... 32x
+
+new rendered buffer:
+
+.lcd_block.orange[-]
+.lcd_block.orange[-]
+.lcd_block.orange[1]
+.lcd_block.orange[2]
+.lcd_block.orange[-]
+.lcd_block.orange[7]
+.lcd_block.orange[2]
+.lcd_block.orange[1]
+.lcd_block.orange[-]
+.lcd_block.orange[-]
+.lcd_block.orange[-]
+.lcd_block.orange[-]
+.lcd_block.orange[-]
+.lcd_block.orange[-]
+.lcd_block.orange[-]
+.lcd_block.orange[-]
+... 32x
 
 ---
 
-# sequencer visuals
+name: diff_send
 
-- double buffering
-- only sending the blocks which have changed
+#Diff send
 
-არ არის დასრულებული
+sent buffer:
 
+.lcd_block[-]
+.lcd_block[-]
+.lcd_block[1]
+.lcd_block[<span id="change_1">-</span>]
+.lcd_block[<span id="change_2">3</span>]
+.lcd_block[<span id="change_3">-</span>]
+.lcd_block[2]
+.lcd_block[1]
+.lcd_block[-]
+.lcd_block[-]
+.lcd_block[-]
+.lcd_block[-]
+.lcd_block[-]
+.lcd_block[-]
+.lcd_block[-]
+.lcd_block[-]
+... 32x
+
+new rendered buffer:
+
+.lcd_block.orange[-]
+.lcd_block.orange[-]
+.lcd_block.orange[1]
+.lcd_block.orange[2]
+.lcd_block.orange[-]
+.lcd_block.orange[7]
+.lcd_block.orange[2]
+.lcd_block.orange[1]
+.lcd_block.orange[-]
+.lcd_block.orange[-]
+.lcd_block.orange[-]
+.lcd_block.orange[-]
+.lcd_block.orange[-]
+.lcd_block.orange[-]
+.lcd_block.orange[-]
+.lcd_block.orange[-]
+... 32x
+
+
+
+<br></br>
+commands sent to lcd:
+<div id="command_div"></div>
+<div id="command_div1"></div>
+<div id="command_div2"></div>
+
+<div style="
+	position:absolute;
+	border: 2px solid red;
+	width:21px;
+	height: 151px;
+	top:175px;
+	left:78px;
+	animation:diff_anim 20s forwards">&nbsp;</div>
 ---
 
-class: center,middle
+class: middle,center
 # Thank you
 
 
@@ -701,6 +1313,11 @@ class: center,middle
 		<!--<script src="./remark.js">-->
 
 		<script>
+			remark.macros.svg = function (percentage) {
+				var url = this;
+				return '<object type="image/svg+xml" data="' + url + '" width="' + percentage + '"/>';
+			};
+
 			var slideshow = remark.create({
 				highlightLines: true,
 				highlightStyle: "ir-black"});
@@ -711,10 +1328,99 @@ class: center,middle
 				}
 			});
 
+			function sleep(ms) {
+			    return new Promise(resolve => setTimeout(resolve, ms));
+			}
+			var dao_done=0;
+			async function dao(){
+				if(dao_done==0){
+					dao_done=1;
+					console.log("avoie");
+					document.getElementById("modify1").innerHTML='<div class="remark-code-line">data[3]{</div><div class="remark-code-line">    type= uninitialized</div><div class="remark-code-line">    note_type note= {null}</div><div class="remark-code-line">    beat= 0</div><div class="remark-code-line">    bar= 0</div><div class="remark-code-line">    next_index= 0</div><div class="remark-code-line">    prev_index= 0</div><div class="remark-code-line">}</div><div class="remark-code-line"></div>'
+					await sleep(1550);
+					console.log("avoie2");
+					document.getElementById("modify1").innerHTML='<div class="remark-code-line">data[3]{</div><div class="remark-code-line">    type= note_type</div><div class="remark-code-line">    note_type note= {"some data"}</div><div class="remark-code-line">    beat= 10</div><div class="remark-code-line">    bar= 2</div><div class="remark-code-line">    next_index= 4</div><div class="remark-code-line">    prev_index= 3</div><div class="remark-code-line">}</div>'
+					await sleep(1000);
+					console.log("avoie3");
+					dao_done=0;
+				}
+			}
+
+			var dao2_done=0;
+			async function dao2(){
+				if(dao2_done==0){
+					dao2_done=1;
+					console.log("avoie");
+					document.getElementById("modify").innerHTML='<div class="remark-code-line">data[3]{</div><div class="remark-code-line">    type= note_type</div><div class="remark-code-line">    note_type note= {"some data"}</div><div class="remark-code-line">    beat= 10</div><div class="remark-code-line">    bar= 2</div><div class="remark-code-line">    next_index= 4</div><div class="remark-code-line">    prev_index= 3</div><div class="remark-code-line">}</div>'
+					await sleep(1000);
+					console.log("avoie2");
+					document.getElementById("modify").innerHTML='<div class="remark-code-line">data[3]{</div><div class="remark-code-line remark-code-line-highlighted">    type= lifo</div><div class="remark-code-line remark-code-line-highlighted">    next_empy_index= 1</div><div class="remark-code-line">    beat= 0</div><div class="remark-code-line">    bar= 0</div><div class="remark-code-line">    next_index= 0</div><div class="remark-code-line">    prev_index= 0</div><div class="remark-code-line">}</div><div class="remark-code-line"></div>'
+					await sleep(1100);
+					document.getElementById("modify").innerHTML='<div class="remark-code-line">data[3]{</div><div class="remark-code-line">    type= note_type</div><div class="remark-code-line">    note_type note= {"other data"}</div><div class="remark-code-line">    beat= 3</div><div class="remark-code-line">    bar= 4</div><div class="remark-code-line remark-code-line-highlighted">    next_index= 1</div><div class="remark-code-line remark-code-line-highlighted">    prev_index= 4</div><div class="remark-code-line">}</div>'
+					await sleep(1000);
+					console.log("avoie3");
+					dao2_done=0;
+				}
+			}
+			var dao3_done=0;
+			async function dao3(){
+				if(dao3_done==0){
+					dao3_done=1;
+					document.getElementById("change_1").innerText="-"
+					document.getElementById("change_2").innerText="3"
+					document.getElementById("change_3").innerText="-"
+					document.getElementById("command_div").innerHTML=''
+					document.getElementById("command_div1").innerHTML=''
+					document.getElementById("command_div2").innerHTML=''
+					await sleep(((20*1000)/16)*4);				
+					document.getElementById("change_1").innerText="2"
+					document.getElementById("command_div").innerHTML+='<p><span class="lcd_command">set cell 4 to \'2\'</span></p>'
+					await sleep(((20*1000)/16)*1);				
+					document.getElementById("change_2").innerText="-"
+					document.getElementById("command_div1").innerHTML+='<p><span class="lcd_command">set cell 5 to \'-\'</span></p>'
+					await sleep(((20*1000)/16)*1);				
+					document.getElementById("change_3").innerText="7"
+					document.getElementById("command_div2").innerHTML+='<p><span class="lcd_command">set cell 6 to \'7\'</span></p>'
+					dao3_done=0;
+				}
+			}
+			async function lookup_arrow_anim(){
+				while(1){
+					document.getElementById("delta_code").innerHTML="delta= 1"
+					document.getElementById("small_delta").innerHTML="small delta - low frequency"
+					for(let i=0;i<16;i++){
+						document.getElementById("lookup_arrow").style.left=123+i*40+"px"
+						await sleep(200);				
+					}
+					document.getElementById("delta_code").innerHTML="delta= 3"
+					document.getElementById("small_delta").innerHTML="high delta - higher frequency"
+								
+					for(let i=0;i<16;i=i+3){
+						document.getElementById("lookup_arrow").style.left=123+i*40+"px"
+						await sleep(200);				
+					}
+					for(let i=1;i<16;i=i+3){
+						document.getElementById("lookup_arrow").style.left=123+i*40+"px"
+						await sleep(200);				
+					}
+				}
+			}
+
+
 			MathJax.Hub.Configured();
-		//	slideshow.on('showSlide', function (slide) {
-		//		console.log(slide)
-		//	});
+			lookup_arrow_anim();
+			slideshow.on('showSlide', function (slide) {
+				if(slide.properties.name=="demo_1"){
+					dao();
+				}
+				if(slide.properties.name=="demo_delete"){
+					dao2();
+				}
+				if(slide.properties.name=="diff_send"){
+					dao3();
+				}
+
+			});
 
 		</script>
 		<script>
