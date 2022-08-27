@@ -866,8 +866,6 @@ uint8_t generate_output(float a, double b) {
 output:
 
 ```asm
-uint8_t generate_output(float a, double b) {
-    time=time+delta;
 lds r30, 0x0102 ; 0x800102 <time>
 lds r31, 0x0103 ; 0x800103 <time+0x1>
 lds r24, 0x0100 ; 0x800100 <delta>
@@ -876,7 +874,6 @@ add r30, r24
 adc r31, r25
 sts 0x0103, r31 ; 0x800103 <time+0x1>
 sts 0x0102, r30 ; 0x800102 <time>
-    return pgm_read_byte(&sine_wave[time]);
 subi    r30, 0x98   ; 152
 sbci    r31, 0xFF   ; 255
 *lpm r24, Z
